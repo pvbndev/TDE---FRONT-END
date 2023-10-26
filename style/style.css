@@ -1,15 +1,19 @@
+/*Importando fonte*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 *{
+    /*Aplicando fonte na pag toda, tirando a margem e o padding*/
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
 }
 
+/*Formatação*/
 #logo{
     width: 200px;
     cursor: pointer;
 }
 
+/*Formatação*/
 nav{
     padding: 15px 30px 15px 30px;
     display: flex;
@@ -17,6 +21,7 @@ nav{
     align-items: center;
 }
 
+/*Formatação*/
 .box-pesquisa{
     display: flex;
     border: 1px solid rgba(0, 0, 0, 0.81);
@@ -27,6 +32,8 @@ nav{
     align-items: center;
     justify-content: space-around;
 }
+
+/*Formatação*/
 .box-pesquisa input{
     width: 100%;
     height: 100%;
@@ -34,7 +41,7 @@ nav{
     outline: none;
 }
 
-
+/*Formatação*/
 .box-login{
     font-size: 13px;
     cursor: pointer;
@@ -49,16 +56,20 @@ nav{
     color: aliceblue;
 }
 
+/*Efeito passar o mouse encima*/
 .box-login:hover{
     background-color: transparent;
     border: 1px solid #0474bc;
     color: #0474bc;
 }
 
+/*Formatação*/
 #box-carrinho i{
     color: #0474bc;
     font-size: 25px;
 }
+
+/*Formatação*/
 #box-carrinho{
     cursor: pointer;
     justify-content: center;
@@ -67,10 +78,12 @@ nav{
     display: flex;
 }
 
+/*Formatação*/
 #box-carrinho:hover{
     color: #0474bc;
 }
 
+/*Formatação*/
 nav ul{
     cursor: pointer;
     list-style: none;
@@ -79,11 +92,12 @@ nav ul{
     align-items: center;
 }
 
+/*Efeito passar o mouse encima*/
 li:hover{
     color: #0474bc;
 }
 
-
+/*Formatação*/
 #tds-categorias{
     display: flex;
     align-items: center;
@@ -95,12 +109,14 @@ li:hover{
     font-size: 13px;
 }
 
+/*Efeito passar o mouse encima*/
 #tds-categorias:hover{
     background-color: transparent;
     border: 1px solid #0474bc;
     color: #0474bc;
 }
 
+/*Formatação*/
 .slider{
     margin: 0 auto;
     width: 100%;
@@ -109,16 +125,19 @@ li:hover{
     overflow: hidden;
 }
 
+/*Formatação*/
 .slides{
     width: 400%;
     height: auto;
     display: flex;
 }
 
+/*Formatação*/
 .slides input{
     display: none;
 }
 
+/*Formatação*/
 .slide{
     position: relative;
     width: 25%;
@@ -126,10 +145,12 @@ li:hover{
     transition: 1s;
 }
 
+/*Formatação*/
 .slide img {
     width: 100%;
 }
 
+/*Formatação*/
 .nav-manual, .nav-auto{
     position: absolute;
     width: 100%;
@@ -139,6 +160,7 @@ li:hover{
     gap: 10px;
 }
 
+/*Formatação*/
 .manual-btn, .nav-auto div{
     width: 10px;
     height: 10px;
@@ -148,14 +170,17 @@ li:hover{
     transition: .5s;
 }
 
+/*Efeito passar o mouse encima*/
 .manual-btn:hover{
     background-color: #ffffff;
 }
 
+/*Colocando a Cor azul no input que está selecionado. se o input radio ta selecionado musar o background para azul*/
 #radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4{
     background-color: #0474bc;
 }
 
+/*Como os slides tem 400% de width, 0% é o primeiro slide, 25% é 1/4 de 400, logo é 100%, então mostra o segundo slide, e assim por diante, de 25 em 25 pq são 4 slides. Essa parte é responsável pela nav manual, na qual controla qual o slide vai aparecer na tela, como se fosse um if, if radio 1: imagem 1.*/
 #radio1:checked ~ .primeiro{
     margin-left: 0%;
 }
@@ -172,20 +197,24 @@ li:hover{
     margin-left: -75%;
 }
 
+
+/*Formatação*/
 #categorias{
     width: 100vw;
     padding-top: 50px;
     padding-bottom: 50px;
-    display: none;
+    display: none; /*O display vem none por padrão, ai quando a pessoa passar o dedo encima do "todas as categorias", vai ser chamada uma função no js, na qual vai mudar o display pra "flex". */
     justify-content: space-evenly;
     transition: 1s;
 
 }
 
+/*Formatação*/
 #nav-categorias{
     flex-direction: column;
 }
 
+/*Formatação*/
 #categorias ul{
     display: inline;
 }

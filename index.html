@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav>
-        
+        <!--NAV BAR ITENS: LOGO, INPUT DE PESQUISA, CARRINHO, E BOTÃO DE LOGIN-->
         <label class="box-logo" for="logo" >
             <img src="style/img/logoTOYSTORE.png" alt="Logo escrito ToyStore" id="logo">
         </label>
@@ -30,7 +30,9 @@
 
     </nav>
 
+    
     <nav id="nav-categorias">
+        <!--CATEGORIAS DA NAV BAR SECUNDÁRIA(NAV DAS CATEGORIAS): BOTÃO DE MAIS CATEGORIAS, E OUTRAS CATEGORIAS PRINCIPAIS-->
         <ul>
             <label id="tds-categorias" onmouseenter="abrirCategorias()"><i class="fa-solid fa-bars"></i><p>Todas as Categorias</p></label>
             <li>Meninas</li>
@@ -40,6 +42,7 @@
             <li>Ofertas</li>
         </ul>
         <div id="categorias">
+            <!--DIV QUE ABRE QUANDO PASSA O MOUSE NO LABEL DE TDS-CATERGORIAS, COM DUAS LISTAS CONTENDO AS OUTRAS CATEGORIAS-->
             <ul>
                 <li>Brinquedos Educativos</li>
                 <li>Jogos de Tabuleiro</li>
@@ -57,14 +60,17 @@
         </div>
     </nav>
 
+    <!--DIV PRINCIPAL QUE ENGLOBA A PARTE DOS SLIDES-->
     <div class="slider">
         <div class="slides">
 
+            <!--INPUTS DE RADIO, RESPONSÁVEIS POR PASSAR AS PAGES (ESTÃO INVISÍVEIS POIS APARECE APENAS O LABEL CORRESPONDENTE)-->
             <input type="radio" name="radio-btn" id="radio1" checked>
             <input type="radio" name="radio-btn" id="radio2">
             <input type="radio" name="radio-btn" id="radio3">
             <input type="radio" name="radio-btn" id="radio4">
 
+            <!--OS SLIDES DE FATO, TODAS AS DIVS COM AS IMAGENS DOS SLIDES QUE VÃOSER USADOS NO SITE (4)-->
             <div class="slide primeiro" id="slide1">
                 <img src="style/img/SlideDeNatal.png" alt="">
             </div>
@@ -78,13 +84,14 @@
                 <img src="https://toymania.vtexassets.com/assets/vtex.file-manager-graphql/images/a60aa776-d916-4c6b-992a-9944283bc8dd___47826d9785c23a7112d58ba375e76853.png" alt="">
             </div>
 
+            <!--DIV RESPONSÁVEL PELA NAVEGAÇÃO AUTOMÁTICA, FEITA NO JS-->
             <div class="nav-auto">
                 <div class="auto-btn1"></div>
                 <div class="auto-btn2"></div>
                 <div class="auto-btn3"></div>
                 <div class="auto-btn4"></div>
             </div>
-            
+            <!--DIV RESPONSÁVEL PELA NAVEGAÇÃO MANUAL, FEITA NO CSS-->
             <div class="nav-manual">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
