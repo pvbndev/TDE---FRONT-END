@@ -172,6 +172,24 @@ li:hover{
     margin-left: -75%;
 }
 
+#categorias{
+    width: 100vw;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: none;
+    justify-content: space-evenly;
+    transition: 1s;
+
+}
+
+#nav-categorias{
+    flex-direction: column;
+}
+
+#categorias ul{
+    display: inline;
+}
+
 
 
 

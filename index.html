@@ -11,7 +11,7 @@
     <nav>
         
         <label class="box-logo" for="logo" >
-            <img src="style/img/1Prancheta 1.png" alt="Logo escrito ToyStore" id="logo">
+            <img src="style/img/logoTOYSTORE.png" alt="Logo escrito ToyStore" id="logo">
         </label>
         <label class="box-pesquisa" for="inpt-pesquisa">
             <input type="text" id="inpt-pesquisa">
@@ -30,15 +30,31 @@
 
     </nav>
 
-    <nav>
+    <nav id="nav-categorias">
         <ul>
-            <li id="tds-categorias"><i class="fa-solid fa-bars"></i><p>Todas as Categorias</p></li>
+            <label id="tds-categorias" onmouseenter="abrirCategorias()"><i class="fa-solid fa-bars"></i><p>Todas as Categorias</p></label>
             <li>Meninas</li>
             <li>Meninos</li>
             <li>Personagens</li>
             <li>Lançamentos</li>
             <li>Ofertas</li>
         </ul>
+        <div id="categorias">
+            <ul>
+                <li>Brinquedos Educativos</li>
+                <li>Jogos de Tabuleiro</li>
+                <li>Bonecas e Bonecos</li>
+                <li>Brinquedos de Construção</li>
+                <li>Brinquedos ao Ar Livre</li>
+            </ul>
+            <ul>
+                <li>Brinquedos Eletrônicos</li>
+                <li>Artes e Ofícios</li>
+                <li>Quebra-cabeças</li>
+                <li>Veículos em Miniatura</li>
+                <li>Fantasias e Acessórios</li>
+            </ul>
+        </div>
     </nav>
 
     <div class="slider">
@@ -50,7 +66,7 @@
             <input type="radio" name="radio-btn" id="radio4">
 
             <div class="slide primeiro" id="slide1">
-                <img src="https://toymania.vtexassets.com/assets/vtex.file-manager-graphql/images/537a8636-ece0-4e83-a98f-7d607aaf6307___afd3120c297baa26a48f76f396f3e8ed.png" alt="">
+                <img src="style/img/SlideDeNatal.png" alt="">
             </div>
             <div class="slide">
                 <img src="https://toymania.vtexassets.com/assets/vtex.file-manager-graphql/images/83537209-9976-4009-a03d-432bca5227a9___02d8b2a5f271b922f52737d48649d4c4.png" alt="">
@@ -80,7 +96,7 @@
     </div>
     <div id="produtos">
         <div class="box-produto">
-            <img src="img/icons8-baby-yoda-48.png" alt="">
+            <img src="style/img/icons8-baby-yoda-48.png" alt="">
             <p class="nome-produto">Baby Yoda</p>
             <p class=""></p>
     </div>
