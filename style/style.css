@@ -6,6 +6,9 @@
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
 
 /*Formatação*/
 #logo{
@@ -21,16 +24,21 @@ nav{
     align-items: center;
 }
 
+.nav-item{
+    margin: 7px;
+}
+
 /*Formatação*/
 .box-pesquisa{
     display: flex;
     border: 1px solid rgba(0, 0, 0, 0.81);
     padding: 5px 20px 5px 20px;
     width: 350px;
-    height: 25px;
+    height: 40px;
+    gap: 15px;
     border-radius: 20px;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 /*Formatação*/
@@ -60,6 +68,17 @@ nav{
 .box-login:hover{
     background-color: transparent;
     border: 1px solid #0474bc;
+    color: #0474bc;
+}
+
+/*Formatação*/
+#btn-cadastro{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/*Formatação*/
+#btn-cadastro:hover{
     color: #0474bc;
 }
 
@@ -117,86 +136,16 @@ li:hover{
 }
 
 /*Formatação*/
-.slider{
-    margin: 0 auto;
-    width: 100%;
-    height: auto;
-    padding: 0;
-    overflow: hidden;
+.swiper {
+    padding: 0px;
+    margin: 0px;
+    width: 100vw;
 }
 
 /*Formatação*/
-.slides{
-    width: 400%;
-    height: auto;
-    display: flex;
-}
-
-/*Formatação*/
-.slides input{
-    display: none;
-}
-
-/*Formatação*/
-.slide{
-    position: relative;
-    width: 25%;
-    height: auto;
-    transition: 1s;
-}
-
-/*Formatação*/
-.slide img {
+.swiper-slide img{
     width: 100%;
 }
-
-/*Formatação*/
-.nav-manual, .nav-auto{
-    position: absolute;
-    width: 100%;
-    margin-top:29%;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-/*Formatação*/
-.manual-btn, .nav-auto div{
-    width: 10px;
-    height: 10px;
-    border: 1px solid #ffffff;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: .5s;
-}
-
-/*Efeito passar o mouse encima*/
-.manual-btn:hover{
-    background-color: #ffffff;
-}
-
-/*Colocando a Cor azul no input que está selecionado. se o input radio ta selecionado musar o background para azul*/
-#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4{
-    background-color: #0474bc;
-}
-
-/*Como os slides tem 400% de width, 0% é o primeiro slide, 25% é 1/4 de 400, logo é 100%, então mostra o segundo slide, e assim por diante, de 25 em 25 pq são 4 slides. Essa parte é responsável pela nav manual, na qual controla qual o slide vai aparecer na tela, como se fosse um if, if radio 1: imagem 1.*/
-#radio1:checked ~ .primeiro{
-    margin-left: 0%;
-}
-
-#radio2:checked ~ .primeiro{
-    margin-left: -25%;
-}
-
-#radio3:checked ~ .primeiro{
-    margin-left: -50%;
-}
-
-#radio4:checked ~ .primeiro{
-    margin-left: -75%;
-}
-
 
 /*Formatação*/
 #categorias{
