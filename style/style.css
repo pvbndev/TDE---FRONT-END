@@ -175,6 +175,10 @@ div.swiper-button-prev, div.swiper-button-next{
     display: inline;
 }
 
+.img-thumbnail p{
+    text-align: justify;
+}
+
 
 
 
