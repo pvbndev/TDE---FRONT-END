@@ -146,6 +146,13 @@ li:hover{
 .swiper-slide img{
     width: 100%;
 }
+div.swiper-button-prev, div.swiper-button-next{
+    height: 25px;
+    width: 25px;
+    padding: 30px;
+    background-color: aliceblue;
+    border-radius: 50%;
+}
 
 /*Formatação*/
 #categorias{

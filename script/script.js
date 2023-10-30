@@ -21,13 +21,15 @@ categorias.addEventListener("mouseleave", function(){
 
 
 setTimeout(function () {
-    new Swiper('.swiper-container', {
-      // suas opções aqui
-    });
-  }, 1000);
-  
 
-swiper = new Swiper('.swiper', {
+  swiper = new Swiper('.swiper', {
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+
+    speed:1300,
+
     //Setando a Direção
     direction: 'horizontal',
     loop: true,
@@ -37,11 +39,29 @@ swiper = new Swiper('.swiper', {
       el: '.swiper-pagination',
     },
 
-    //fazendo com que o role com o scroll do mouse
-    mousewheel: {
-        invert: true,
+    //definindo as setinhas de navegação
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
     },
+  });
+
+  }, 1000);
   
+
+swiper = new Swiper('.swiper', {
+
+    speed:1300,
+
+    //Setando a Direção
+    direction: 'horizontal',
+    loop: true,
+  
+    // Setando a paginação
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
     //definindo as setinhas de navegação
     navigation: {
       nextEl: '.swiper-button-next',
