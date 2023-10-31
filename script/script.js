@@ -28,7 +28,7 @@ setTimeout(function () {
       disableOnInteraction: true,
     },
 
-    speed:1300,
+    speed:500,
 
     //Setando a Direção
     direction: 'horizontal',
