@@ -1,6 +1,6 @@
 body{
-    background: rgb(158,11,82);
-    background: linear-gradient(90deg, rgba(158,11,82,1) 0%, rgba(17,112,173,1) 100%);
+    background: rgb(17,112,173);
+    background: linear-gradient(90deg, rgba(17,112,173,1) 0%, rgba(158,11,82,1) 100%);
     display: flex;
     justify-content: center;
     align-items: center;
