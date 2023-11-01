@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Toy Store</title>
+    <title>Criar Conta Toy Store</title>
     <!--Abaixo o script para importar os icones usados no site-->
     <script src="https://kit.fontawesome.com/ff98f8ebe6.js" crossorigin="anonymous"></script>
     <!--Abaixo o Link para o uso da API do Swiper Js, Responsável pelos sliders do site-->
@@ -16,9 +16,10 @@
 
 </head>
 <body>
+    <img src="/style/img/logoTOYSTORE.svg" alt="" class="img-fluid">
     <form action="/index.html">
 
-        <div class="card p-5">
+        <div class=" card p-5">
             <h1>Criar Conta</h1>
             
             <input type="email" id="nome" class="form-control my-2" placeholder="Email" required autofocus>
@@ -30,11 +31,21 @@
                 </label>
             </div>
 
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Criar conta</button>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
 
-            <a href="/login-page/index.html" class="small text-light">
-                Já tenho uma conta
-            </a>
+            <p class="text-center small pt-3 m-0">OU</p>
+
+            <div class="d-flex justify-content-center gap-2 py-2 other-login"> 
+                <button>
+                    <i class="fa-brands fa-square-facebook"></i>
+                </button>
+                <button>
+                    <i class="fa-brands fa-google"></i>
+                </button>
+            </div>
+
+            <span class="p-1">Já possui uma conta? <a href="/login-page/index.html">fazer login</a></span>
+        
         </div>    
 
     </form>
