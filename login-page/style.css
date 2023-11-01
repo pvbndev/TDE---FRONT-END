@@ -8,10 +8,8 @@ body{
 
 .card{
     
-    border: none;
     background-color: rgb(231, 230, 230);
     transform: scale(1.1);
-    border-radius: 0px;
 }
 
 .other-login button{
