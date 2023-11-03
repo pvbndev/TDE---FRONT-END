@@ -1,18 +1,44 @@
 {
-    "users":[
-
-        {
-            "email": "samuel@gmail.com",
-            "password": "12345"
-        },
-        {
-            "email": "calebe@gmail.com",
-            "password": "12345"
-        },
-        {
-            "email": "akise@gmail.com",
-            "password": "12345"
-        }
-            
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "samuel@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "email": "calebe@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 3,
+      "email": "akise@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 4,
+      "email": "bel@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 5,
+      "email": "celiomar@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 6,
+      "email": "renan@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": 7,
+      "email": "andre@gmail.com",
+      "password": "12345"
+    },
+    {
+      "email": "Teste@gmail.com",
+      "password": "123456",
+      "id": 8
+    }
+  ]
 }

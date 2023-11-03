@@ -7,7 +7,7 @@ body{
 }
 
 .card{
-    
+    width: 400px;
     background-color: rgb(231, 230, 230);
     transform: scale(1.1);
 }
@@ -30,5 +30,9 @@ body img{
 
 #erroLogin{
     display: none;
+    flex-direction: column;
+    margin: 0;
+    padding-top: 16px;
+    text-align: center;
 }
 

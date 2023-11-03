@@ -19,7 +19,6 @@
 </head>
 <body>
     <div>
-
         <div class=" card p-5">
             <a href="/index.html"><img src="/style/img/logoTOYSTORE.svg" alt="" class="img-fluid"></a>
             <h1>Criar Conta</h1>
@@ -27,14 +26,8 @@
             <input type="email" id="cc_email" class="form-control my-2" placeholder="Email" required autofocus>
             <input type="password" id="cc_senha" class="form-control my-2" placeholder="Senha" required>
 
-            <div class="checkbox my-2">
-                <label>
-                    <input type="checkbox" value="Manter Conectado"> Manter Conectado
-                </label>
-            </div>
-
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" onclick="criar()">Entrar</button>
-
+            <button class="btn btn-lg btn-primary btn-block btn-signin m-2" type="submit" onclick="criar()">Cadastrar</button>
+            <p id="erroCriar" class="text-center small text-danger">Preencha Corretamente os Campos de Email e Senha.</p>
             <p class="text-center small pt-3 m-0">OU</p>
 
             <div class="d-flex justify-content-center gap-2 py-2 other-login"> 
@@ -46,7 +39,7 @@
                 </button>
             </div>
 
-            <span class="p-1">Já possui uma conta? <a href="/login-page/index.html">fazer login</a></span>
+            <span class="p-1 text-center">Já possui uma conta? <a href="/login-page/index.html">fazer login</a></span>
         
         </div>    
 

@@ -19,6 +19,7 @@ function validacao(){
     .then((data) =>{
         
         if(!!data.find((e) => e.email === email && e.password === senha)){
+            console.log("Login Concluido com sucesso");
             redirect("/index.html")
         }else{
             document.querySelector("#erroLogin").style.display = "flex"
@@ -33,26 +34,29 @@ function criar(){
     const cc_email = document.querySelector("#cc_email").value
     const cc_senha = document.querySelector("#cc_senha").value
 
-    const newUser = {
-        "email": cc_email,
-        "password": cc_senha
-    };
+    if (cc_email === "" || cc_senha === ""){
+        document.querySelector("#erroCriar").style.display = "flex"
+    }else{
+        const newUser = {
+            "email": cc_email,
+            "password": cc_senha
+        };
+        
+        fetch("http://localhost:5000/users", {
+            method: 'post',
+            body: JSON.stringify(newUser),
+            headers:{
+                'Content-Type': 'application/json'
+            }
     
-    fetch("http://localhost:5000/users", {
-        method: 'post',
-        body: JSON.stringify(newUser),
-        headers:{
-            'Content-Typ': 'application/json'
-        }
-
-    }).then(function(response){
-        return response.text()
-    }).then(function(text){
-
-    }).catch(function(error){
-        console.error(error)
-    })
-
+        }).then(function(response){
+            return response.text()
+        }).then(function(text){
+            redirect("/login-page/index.html")
+        }).catch(function(error){
+            console.error(error)
+        })
+    }
 
 }
 
