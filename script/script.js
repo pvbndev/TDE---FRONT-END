@@ -22,7 +22,7 @@ categorias.addEventListener("mouseleave", function(){
 
 setTimeout(function () {
 
-  swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper', {
     autoplay: {
       delay: 5000,
       disableOnInteraction: true,
@@ -47,24 +47,5 @@ setTimeout(function () {
   });
 
   }, 1000);
-  
 
-swiper = new Swiper('.swiper', {
 
-    speed:1300,
-
-    //Setando a Direção
-    direction: 'horizontal',
-    loop: true,
-  
-    // Setando a paginação
-    pagination: {
-      el: '.swiper-pagination',
-    },
-
-    //definindo as setinhas de navegação
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });

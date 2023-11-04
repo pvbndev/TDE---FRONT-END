@@ -1,13 +1,38 @@
 let teste
+let obj_login = ''
+
+var criar_Login = document.querySelector("#box-cad-log")
 
 function redirect(link){
     window.location.href = link
 }
 
+async function atualizarJson(taskId, Task){
+    const url = `http://localhost:5000/users/${taskId}`
+    const options = {
+        method: 'PUT',
+        headers:{
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify(Task)
+    }
+
+    const response = await fetch(url, options)
+    if (response.ok){
+        console.log ("Tarefa Atualizada!!!")
+    }else{
+        console.log("falha")
+    }
+}
+
+
 function validacao(){
 
-    const email = document.querySelector("#input_email").value
-    const senha = document.querySelector("#senha").value
+    let user = document.querySelector("#input_User").value
+    let senha = document.querySelector("#input_Senha").value
+
+    user = user.toLowerCase()
+    senha = senha.toLowerCase()
 
     fetch("http://localhost:5000/users",{
         method:"GET",
@@ -18,8 +43,8 @@ function validacao(){
     .then((resp) => resp.json())
     .then((data) =>{
         
-        if(!!data.find((e) => e.email === email && e.password === senha)){
-            console.log("Login Concluido com sucesso");
+        if(!!data.find((e) => e.user === user && e.password === senha)){
+            console.log("Login Concluido com sucesso")
             redirect("/index.html")
         }else{
             document.querySelector("#erroLogin").style.display = "flex"
@@ -31,13 +56,21 @@ function validacao(){
 }
 
 function criar(){
-    const cc_email = document.querySelector("#cc_email").value
-    const cc_senha = document.querySelector("#cc_senha").value
+    let cc_user = document.querySelector("#cc_user").value
+    let cc_email = document.querySelector("#cc_email").value
+    let cc_senha = document.querySelector("#cc_senha").value
 
-    if (cc_email === "" || cc_senha === ""){
+    cc_user = cc_user.toLowerCase()
+    cc_email = cc_email.toLowerCase()
+    cc_senha = cc_senha.toLowerCase()
+
+
+
+    if (cc_email === "" || cc_senha === "" || cc_user === ""){
         document.querySelector("#erroCriar").style.display = "flex"
     }else{
         const newUser = {
+            "user": cc_user,
             "email": cc_email,
             "password": cc_senha
         };
