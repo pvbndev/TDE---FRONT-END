@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h2{
+            margin: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            width: 700px;
+            height: 700px;
+            transform: scale(0.95);
+        }
+        label{
+            text-align: left;
+        }
+        label p{
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <form action="#" class="card p-5 gap-2" id="form-cad-prod">
+
+            <div for="title">
+                <h2 class="titulo py-1">Cadastro de Produtos</h2>
+            </div>
+
+            <label for="nomeProd">
+                <p>Nome do Produto: </p>
+                <input type="text" id="nomeProd" class="form-control my-2" placeholder="Nome do Produto" required autofocus>
+            </label>
+
+            <label for="descProd">
+                <p>Descrição do produto: </p>
+                <input type="text" id="descProd" class="form-control my-2" placeholder="Descrição do Produto" required autofocus>
+            </label>
+
+            <label for="precoProd">
+                <p>Preço do Produto: </p>
+                <input type="number" id="precoProd" class="form-control my-2" placeholder="Preço em R$" required autofocus>
+            </label>
+
+            <label for="descontProd">
+                <p>Desconto do Produto: </p>
+                <input type="number" id="descontProd" class="form-control my-2" placeholder="Porcentagem %" autofocus>
+            </label>
+
+            <label for="categProd">
+                <p>Categoria do produto: </p>
+                <input type="text" id="categProd" class="form-control my-2" placeholder="Categoria do produto" required autofocus>
+            </label>
+
+            <label for="imgProd">
+                <p>Imagem do Produto: </p>
+                <input type="file" id="imgProd" class="form-control my-2" autofocus required>
+            </label>
+
+            <button class="btn btn-primary">Enviar</button>
+
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>

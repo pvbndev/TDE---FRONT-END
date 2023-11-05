@@ -2,6 +2,8 @@ let teste
 let obj_login = ''
 
 var criar_Login = document.querySelector("#box-cad-log")
+var formCC = document.querySelector("#form-cc")
+var formLogin = document.querySelector("#form-login")
 
 function redirect(link){
     window.location.href = link
@@ -28,8 +30,8 @@ async function atualizarJson(taskId, Task){
 
 function validacao(){
 
-    let user = document.querySelector("#input_User").value
-    let senha = document.querySelector("#input_Senha").value
+    var user = document.querySelector("#input_User").value
+    var senha = document.querySelector("#input_Senha").value
 
     user = user.toLowerCase()
     senha = senha.toLowerCase()
@@ -45,7 +47,6 @@ function validacao(){
         
         if(!!data.find((e) => e.user === user && e.password === senha)){
             console.log("Login Concluido com sucesso")
-            redirect("/index.html")
         }else{
             document.querySelector("#erroLogin").style.display = "flex"
         }
@@ -56,9 +57,9 @@ function validacao(){
 }
 
 function criar(){
-    let cc_user = document.querySelector("#cc_user").value
-    let cc_email = document.querySelector("#cc_email").value
-    let cc_senha = document.querySelector("#cc_senha").value
+    var cc_user = document.querySelector("#cc_user").value
+    var cc_email = document.querySelector("#cc_email").value
+    var cc_senha = document.querySelector("#cc_senha").value
 
     cc_user = cc_user.toLowerCase()
     cc_email = cc_email.toLowerCase()
@@ -92,6 +93,9 @@ function criar(){
     }
 
 }
+
+formCC.addEventListener('submit', criar)
+formLogin.addEventListener('submit', validacao)
 
 
 
