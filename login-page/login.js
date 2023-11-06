@@ -4,7 +4,6 @@ var formLogin = document.querySelector("#form-login")
 function redirect(link){
     window.location.href = link
 }
-
 async function atualizarJson(taskId, Task){
     const url = `http://localhost:5000/users/${taskId}`
     const options = {
@@ -22,7 +21,6 @@ async function atualizarJson(taskId, Task){
         console.log("falha")
     }
 }
-
 
 function validacao(){
 

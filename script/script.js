@@ -48,4 +48,49 @@ setTimeout(function () {
 
   }, 1000);
 
+fetch("http://localhost:5000/produtos",{
+  method:"GET",
+  headers:{
+      'Content-type': 'application/json',
+  },
+})
+.then((resp) => resp.json())
+.then((data) =>{
+
+  var produto = (data.find((e)=> e.categProdSec === "Ofertas"))
+  var containerOfertas = document.querySelector("#container-ofertas");
+
+  var prodNomes = data.map(function(produto){
+
+    var produtos = document.createElement('div');
+    produtos.className = "d-flex justify-content-center col-xl-3 col-md-4 pb-5"
+
+    produtos.innerHTML = `
+    <div class="mp-item box-produtos img-thumbnail w-75">
+        <img src="${produto.imagem}" alt="" class="img-thumbnail">
+        <p class="small m-0 text-uppercase">${produto.nome}</p>
+        <span class="m-0">
+            <p class="h3 m-0 fw-bold m-0">${'R$'+ produto.preco}</p>
+            ${produto.desconto > 0?'<p class="small text-success m-0">' + produto.desconto +'%OFF</p>': '<p class="small text-success m-0">&nbsp</p>'}
+        </span>
+        <span>
+            <button class="btn btn-success">Comprar</button>
+            <button class="btn btn-primary">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </span>
+    </div>
+    `;
+
+    containerOfertas.appendChild(produtos);
+
+  })
+
+  
+
+
+})
+.catch((err)=> console.log(err))
+  
+
 

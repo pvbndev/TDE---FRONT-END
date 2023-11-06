@@ -4,7 +4,6 @@ function newProd(event) {
     event.preventDefault();
 
     var nomeProd = document.querySelector("#nomeProd").value;
-    var descProd = document.querySelector("#descProd").value;
     var precoProd = document.querySelector("#precoProd").value;
     var descontoProd = document.querySelector("#descontProd").value;
     var categProdPrin = document.querySelector("#categProdPrin").value;
@@ -16,12 +15,11 @@ function newProd(event) {
     reader.onloadend = function() {
         const newProduto = {
             "nome": nomeProd,
-            "desc": descProd,
             "preco": precoProd,
             "desconto": descontoProd,
             "categoriaPrincipal": categProdPrin,
             "categoriaSecundario": categProdSec,
-            "imagem": reader.result // A imagem em formato base64
+            "imagem": reader.result
         };
 
         fetch("http://localhost:5000/produtos", {
