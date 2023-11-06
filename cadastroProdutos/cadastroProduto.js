@@ -1,7 +1,7 @@
 var form = document.querySelector("#form-cad-prod");
 
-function newProd(e) {
-    e.preventDefault();
+function newProd(event) {
+    event.preventDefault();
 
     var nomeProd = document.querySelector("#nomeProd").value;
     var descProd = document.querySelector("#descProd").value;
@@ -9,42 +9,41 @@ function newProd(e) {
     var descontoProd = document.querySelector("#descontProd").value;
     var categProdPrin = document.querySelector("#categProdPrin").value;
     var categProdSec = document.querySelector("#categProdSec").value;
-    var imgInput = document.querySelector("#imgProd");
-    
-    if (imgInput.files.length > 0) {
-        const reader = new FileReader();
+    var imgInput = document.querySelector("#imgProd").files[0]; // Obtém o arquivo de imagem
 
-        reader.onloadend = function() {
+    var reader = new FileReader();
 
-            const imgBase64 = reader.result;
-
-            const newProduto = {
-                "nome": nomeProd,
-                "desc": descProd,
-                "preco": precoProd,
-                "desconto": descontoProd,
-                "categoriaPrincipal": categProdPrin,
-                "categoriaSecundario": categProdSec,
-                "imagem": imgBase64
-            };
-
-            fetch("http://localhost:5000/produtos", {
-                method: 'POST',
-                body: JSON.stringify(newProduto),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(function(response) {
-                return response.text();
-            }).then(function(text) {
-
-            }).catch(function(error) {
-                console.error(error);
-            });
+    reader.onloadend = function() {
+        const newProduto = {
+            "nome": nomeProd,
+            "desc": descProd,
+            "preco": precoProd,
+            "desconto": descontoProd,
+            "categoriaPrincipal": categProdPrin,
+            "categoriaSecundario": categProdSec,
+            "imagem": reader.result // A imagem em formato base64
         };
-        
-    } else {
-        console.error("Nenhuma imagem selecionada.");
+
+        fetch("http://localhost:5000/produtos", {
+            method: 'post',
+            body: JSON.stringify(newProduto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(response) {
+            if (response.ok) {
+                return response.text();
+            }
+            throw new Error('Erro ao enviar o formulário');
+        }).then(function(text) {
+            console.log(text); // Faça algo com a resposta do servidor, se necessário
+        }).catch(function(error) {
+            console.error(error);
+        });
+    };
+
+    if (imgInput) {
+        reader.readAsDataURL(imgInput); // Lê o arquivo de imagem como base64
     }
 }
 

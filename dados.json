@@ -19,17 +19,16 @@
       "id": 3
     }
   ],
-  "produtos":[
+  "produtos": [
     {
-    "nome": "nomeProd",
-    "desc": "descProd",
-    "preco": "precoProd",
-    "desconto": "descontoProd",
-    "categProdPrin": "categProd",
-    "categProdSec": "categProdSec",
-    "imagem": "imgBase64",
-    "id": 1
+      "nome": "nomeProd",
+      "desc": "descProd",
+      "preco": "precoProd",
+      "desconto": "descontoProd",
+      "categProdPrin": "categProd",
+      "categProdSec": "categProdSec",
+      "imagem": "imgBase64",
+      "id": 1
     }
   ]
-
-}  
+}
