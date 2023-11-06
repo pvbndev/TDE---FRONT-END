@@ -11,11 +11,24 @@
       "email": "celio@gay.semen",
       "password": "12345",
       "id": 2
+    },
+    {
+      "user": "samuel",
+      "email": "sandersonsamuel401@gmail.com",
+      "password": "12345",
+      "id": 3
     }
   ],
-  "produtos": [
+  "produto":[
     {
-      "nome": "Celular"
+    "nome": "nomeProd",
+    "desc": "descProd",
+    "preco": "precoProd",
+    "desconto": "descontoProd",
+    "categoria": "categProd",
+    "imagem": "imgBase64",
+    "id": "1"
     }
   ]
-}
+
+}  
