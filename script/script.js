@@ -2,6 +2,15 @@ var radio = document.querySelector('.manual-btn')
 var cont = 1 
 const swiper = document.querySelector('.swiper').swiper;
 
+function redirect(link){
+  window.location.href = link
+}
+
+function logOut(){
+  sessionStorage.clear()
+  window.location.reload()
+}
+
 //ABRINDO E FECHAnDO AS CATEGORIAS
 var nav_categorias = document.getElementById("nav-categorias")
 var categorias = document.getElementById("categorias")
@@ -20,7 +29,9 @@ categorias.addEventListener("mouseleave", function(){
 })
 
 function addCart(id){
-  fetch("http://localhost:5000/produtos",{
+  if (sessionStorage.getItem("login")){
+    idUser = sessionStorage.getItem("id")
+    fetch("http://localhost:5000/produtos",{
   method:"GET",
   headers:{
       'Content-type': 'application/json',
@@ -29,9 +40,27 @@ function addCart(id){
   .then((data) =>{
 
     addProdCart = (data.find((e)=> e.id == id))
-    console.log(addProdCart);
+    fetch(`http://localhost:5000/users/${idUser}/cart`, {
+            method: 'post',
+            body: JSON.stringify(addProdCart),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(function(response) {
+            if (response.ok) {
+                return response.text()
+            }
+            throw new Error('Erro ao enviar o formulário')
+        }).then(function(text) {
+            console.log(text)
+        }).catch(function(error) {
+            console.error(error)
+        });
     
   })
+  }else{
+    redirect("/login-page/index.html")
+  }
 
 }
 
@@ -114,11 +143,62 @@ fetch("http://localhost:5000/produtos",{
 
   })
 
-  
-
-
 })
 .catch((err)=> console.log(err))
+
+var loginBox = document.querySelector("#box-login")
+var login = sessionStorage.getItem("login")
+
+if (login){
+
+  var btnLogado = document.createElement('div')
+  btnLogado.className = "dropdown"
+  var userLogado = sessionStorage.getItem("id")
+
+  fetch(`http://localhost:5000/users/${userLogado}`,{
+  method:"GET",
+  headers:{
+      'Content-type': 'application/json',
+  },
+  })
+  .then((resp) => resp.json())
+  .then((data) =>{
+    loginBox.className = "d-flex"
+    btnLogado.innerHTML = `
+    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ${data.user}&nbsp
+                <i class="fa-solid fa-user"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                <li><a class="dropdown-item" href="#" onclick="logOut()">Sair</a></li>
+              </ul>
+              `
+    loginBox.appendChild(btnLogado)
+
+  })
+
+}else{
+  var btnLogCreat = document.createElement('a')
+  loginBox.className = "d-flex"
+  btnLogCreat.href = "login-page/index.html"
+  btnLogCreat.className = "nav-link nav-item"
+  btnLogCreat.id = "box-cad-log"
+
+  btnLogCreat.innerHTML = `<label for="btn-cadastro" class="box-login">
+  Entre ou Cadastre-se
+</label>`
+
+  loginBox.appendChild(btnLogCreat)
+
+}
+
+/*
+<a href="login-page/index.html" class="nav-link nav-item" id="box-cad-log">
+            
+        </a>
+*/
   
 
 

@@ -1,6 +1,7 @@
 var criar_Login = document.querySelector("#box-cad-log")
 var formLogin = document.querySelector("#form-login")
 
+
 function redirect(link){
     window.location.href = link
 }
@@ -22,7 +23,9 @@ async function atualizarJson(taskId, Task){
     }
 }
 
-function validacao(){
+function validacao(event){
+
+    event.preventDefault();
 
     var user = document.querySelector("#input_User").value
     var senha = document.querySelector("#input_Senha").value
@@ -38,9 +41,13 @@ function validacao(){
     })
     .then((resp) => resp.json())
     .then((data) =>{
-        
+
+        var atualUser = data.find((e) => e.user === user && e.password === senha)
         if(!!data.find((e) => e.user === user && e.password === senha)){
+            sessionStorage.setItem("login", true)
+            sessionStorage.setItem("id", atualUser.id)
             console.log("Login Concluido com sucesso")
+            redirect("/index.html")
         }else{
             document.querySelector("#erroLogin").style.display = "flex"
         }
