@@ -5,10 +5,8 @@
       "email": "samuel@gmail.com",
       "password": "12345",
       "id": 1,
-      "cart":[
-        {
-
-        }
+      "cart": [
+        {}
       ]
     },
     {
@@ -16,9 +14,8 @@
       "email": "celiooooooooooo",
       "password": "12345",
       "id": 2,
-      "cart":[
+      "cart": [
         {
-          "id": 1
           
         }
       ]
@@ -28,11 +25,18 @@
       "email": "calebe@gay.semen",
       "password": "12345",
       "id": 3,
-      "cart":[
-        {
-          
-        }
+      "cart": [
+        {}
       ]
+    },
+    {
+      "user": "samuelteste",
+      "email": "samuel@gmail.com",
+      "password": "12345",
+      "cart": [
+        {}
+      ],
+      "id": 4
     }
   ],
   "produtos": [

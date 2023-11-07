@@ -17,7 +17,12 @@ function criar(){
         const newUser = {
             "user": cc_user,
             "email": cc_email,
-            "password": cc_senha
+            "password": cc_senha,
+            "cart":[
+                {
+                    
+                }
+            ]
         };
         
         fetch("http://localhost:5000/users", {
