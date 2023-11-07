@@ -201,11 +201,21 @@ div.swiper-button-prev, div.swiper-button-next{
 
 .mp-item{
     transition: transform .5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(234, 234, 234);
 }
 
 .mp-item:hover{
     transform: scale(1.1);
     cursor: pointer;
+}
+
+#box-comprar {
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 

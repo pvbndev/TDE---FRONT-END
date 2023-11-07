@@ -70,10 +70,13 @@ fetch("http://localhost:5000/produtos",{
         <img src="${produto.imagem}" alt="" class="img-thumbnail">
         <p class="small m-0 text-uppercase">${produto.nome}</p>
         <span class="m-0">
-            <p class="h3 m-0 fw-bold m-0">${'R$'+ produto.preco}</p>
+            <div class = "d-flex gap-2">
+              <p class="h3 m-0 fw-bold m-0">${'R$'+ produto.preco}</p>
+              ${produto.desconto > 0 ? `<p class="h3 m-0 fw-bold m-0 small"><s>R$${(produto.preco + (produto.preco * (produto.desconto/100))).toString()}</s></p>` : '<p class="small text-success m-0">&nbsp</p>'}
+            </div>
             ${produto.desconto > 0?'<p class="small text-success m-0">' + produto.desconto +'%OFF</p>': '<p class="small text-success m-0">&nbsp</p>'}
         </span>
-        <span>
+        <span id="box-comprar">
             <button class="btn btn-success">Comprar</button>
             <button class="btn btn-primary">
                 <i class="fa-solid fa-cart-shopping"></i>
