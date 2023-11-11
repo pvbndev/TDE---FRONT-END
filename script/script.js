@@ -2,8 +2,39 @@ var radio = document.querySelector('.manual-btn')
 var cont = 1 
 const swiper = document.querySelector('.swiper').swiper;
 
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var boxCarrinho = document.querySelector("#box-carrinho")
+
+teste = sessionStorage.getItem("login")
+console.log(teste);
+
+if (sessionStorage.getItem("login") === null){
+  boxCarrinho.setAttribute("href", "./login-page/index.html")
+}
+
 function redirect(link){
   window.location.href = link
+}
+
+
+async function atualizarJson(taskId, Task){
+  const url = `http://localhost:5000/carrinho/${taskId}`
+  const options = {
+      method: 'PUT',
+      headers:{
+          'Content-type': 'application/json',
+      },
+      body: JSON.stringify(Task)
+  }
+
+  const response = await fetch(url, options)
+  if (response.ok){
+      console.log ("Tarefa Atualizada!!!")
+  }else{
+      console.log("falha")
+  }
 }
 
 function logOut(){
@@ -30,34 +61,55 @@ categorias.addEventListener("mouseleave", function(){
 
 function addCart(id){
   if (sessionStorage.getItem("login")){
-    idUser = sessionStorage.getItem("id")
-    fetch("http://localhost:5000/produtos",{
-  method:"GET",
-  headers:{
-      'Content-type': 'application/json',
-  },
-  }).then((resp) => resp.json())
-  .then((data) =>{
+    userId = Number(sessionStorage.getItem("id"))
 
-    addProdCart = (data.find((e)=> e.id == id))
-    fetch(`http://localhost:5000/users/${idUser}/cart`, {
-            method: 'post',
-            body: JSON.stringify(addProdCart),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(function(response) {
-            if (response.ok) {
-                return response.text()
-            }
-            throw new Error('Erro ao enviar o formulário')
-        }).then(function(text) {
-            console.log(text)
-        }).catch(function(error) {
-            console.error(error)
-        });
+    fetch('http://localhost:5000/carrinho')
+    .then(response => response.json())
+    .then(data => {
+      
+      //filtrando os produtos para apenas o que são do id atual
+      userCart = data.filter((e)=> e.userId === userId)
+
+      //pegando o obj que é duplicado
+      objProd = userCart.find((e)=> e.produtoId == id)
+
+
+      //verificando se é duplicado
+      if (!!(userCart.find((e)=> e.produtoId == id))){
+
+        //enviando o mesmo obj de volta, mas agora com um qteProd a mais
+        objProd.qteProd += 1
+        atualizarJson(objProd.id, objProd)
+
+      }else{
+        produtoCart ={
+          produtoId: id,
+          userId: userId,
+          qteProd: 1
+        }
     
-  })
+        var requestOptions = {
+          method: 'POST',
+          headers: myHeaders,
+          body: JSON.stringify(produtoCart),
+          redirect: 'follow'
+        };
+        
+        fetch("http://localhost:5000/carrinho", requestOptions)
+          .then(response => response.text())
+          .then(result => console.log(result))
+      }
+    })
+  }else{
+    redirect("/login-page/index.html")
+  }
+
+}
+
+function clickComprar(id){
+
+  if(sessionStorage.getItem("login")){
+    addCart(id)
   }else{
     redirect("/login-page/index.html")
   }
@@ -130,7 +182,7 @@ fetch("http://localhost:5000/produtos",{
             ${produto.desconto > 0?'<p class="small text-success m-0">' + produto.desconto +'%OFF</p>': '<p class="small text-success m-0">&nbsp</p>'}
         </span>
         <span id="box-comprar">
-          <button class="btn btn-success">Comprar</button>
+          <button class="btn btn-success" onclick=" clickComprar(${produto.id})">Comprar</button>
           <button class="btn btn-primary" onclick="addCart(${produto.id})">
               <i class="fa-solid fa-cart-shopping"></i>
           </button>
@@ -165,7 +217,7 @@ if (login){
   .then((data) =>{
     loginBox.className = "d-flex"
     btnLogado.innerHTML = `
-    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-outline-primary dropdown-toggle text-capitalize" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 ${data.user}&nbsp
                 <i class="fa-solid fa-user"></i>
               </button>
@@ -193,12 +245,6 @@ if (login){
   loginBox.appendChild(btnLogCreat)
 
 }
-
-/*
-<a href="login-page/index.html" class="nav-link nav-item" id="box-cad-log">
-            
-        </a>
-*/
   
 
 

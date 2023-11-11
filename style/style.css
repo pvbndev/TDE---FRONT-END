@@ -102,6 +102,7 @@ nav{
 
 /*Formatação*/
 #box-carrinho{
+    color: inherit;
     cursor: pointer;
     justify-content: center;
     align-items: center ;
