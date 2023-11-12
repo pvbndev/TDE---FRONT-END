@@ -1,5 +1,15 @@
 var form = document.querySelector("#form-cad-prod")
 
+function alerta(msg){
+    var alert = document.querySelector("#alerta")
+    alert.style.display = "block"
+    alert.innerHTML = msg
+  
+    setTimeout(function(){
+      alert.style.display = "none"
+    }, 3000)
+  }
+
 function newProd(event) {
     event.preventDefault();
 

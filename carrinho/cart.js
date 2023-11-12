@@ -2,6 +2,16 @@ var container = document.querySelector("#container");
 
 var atualUser = sessionStorage.getItem("id");
 
+function alerta(msg){
+  var alert = document.querySelector("#alerta")
+  alert.style.display = "block"
+  alert.innerHTML = msg
+
+  setTimeout(function(){
+    alert.style.display = "none"
+  }, 3000)
+}
+
 async function deleteJson(id){
   fetch(`http://localhost:5000/carrinho/${id}`,{
     method: 'DELETE',
@@ -57,7 +67,7 @@ fetch('http://localhost:5000/carrinho')
             <img src=${produtoUser.imagem}>
             <p class="col-3 m-0">${produtoUser.nome}</p>
             <p class="m-0 col-2 text-center">R$${produtoUser.preco}</p>
-            <p class="m-0 col-2 text-center"><button onclick="modQte(${produtoUser.id}, ${-1})" class="btn btn-danger btnPM">-</button>${produto.qteProd}<button onclick="modQte(${produtoUser.id}, ${+1})" class="btn btn-primary btnPM">+</button></p>
+            <p class="m-0 col-2 text-center"><button onclick="modQte(${produtoUser.id}, ${-1}), event" class="btn btn-danger btnPM">-</button>${produto.qteProd}<button onclick="modQte(${produtoUser.id}, ${+1})" class="btn btn-primary btnPM">+</button></p>
             <p class="m-0 col-2 text-center">R$${subtotal}</p>
             <button onclick = "deleteJson(${produto.id})" id="btn-lixo" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
           `;
@@ -94,7 +104,7 @@ fetch('http://localhost:5000/carrinho')
     });
   });
 
-  function modQte(id, pm) {
+  function modQte(id, pm, event) {
     
     fetch('http://localhost:5000/carrinho')
   .then(response => response.json())

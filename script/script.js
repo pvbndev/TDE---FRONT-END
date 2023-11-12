@@ -2,6 +2,16 @@ var radio = document.querySelector('.manual-btn')
 var cont = 1 
 const swiper = document.querySelector('.swiper').swiper;
 
+function alerta(msg){
+  var alert = document.querySelector("#alerta")
+  alert.style.display = "block"
+  alert.innerHTML = msg
+
+  setTimeout(function(){
+    alert.style.display = "none"
+  }, 3000)
+}
+
 var myHeaders = new Headers();
 myHeaders.append("Content-Type", "application/json");
 
@@ -37,7 +47,8 @@ async function atualizarJson(taskId, Task){
   }
 }
 
-function logOut(){
+function logOut(event){
+  event.preventDefault()
   sessionStorage.clear()
   window.location.reload()
 }
@@ -59,7 +70,8 @@ categorias.addEventListener("mouseleave", function(){
     categorias.style.display = "none"
 })
 
-function addCart(id){
+function addCart(id, event){
+  event.preventDefault()
   if (sessionStorage.getItem("login")){
     userId = Number(sessionStorage.getItem("id"))
 
@@ -80,6 +92,7 @@ function addCart(id){
         //enviando o mesmo obj de volta, mas agora com um qteProd a mais
         objProd.qteProd += 1
         atualizarJson(objProd.id, objProd)
+        alerta("Adicionado com sucesso ao carrinho")
 
       }else{
         produtoCart ={
@@ -96,7 +109,9 @@ function addCart(id){
         };
         
         fetch("http://localhost:5000/carrinho", requestOptions)
-          .then(response => response.text())
+          .then(response => response.text(
+            alerta("Adicionado com sucesso ao carrinho")
+          ))
           .then(result => console.log(result))
       }
     })
@@ -106,15 +121,6 @@ function addCart(id){
 
 }
 
-function clickComprar(id){
-
-  if(sessionStorage.getItem("login")){
-    addCart(id)
-  }else{
-    redirect("/login-page/index.html")
-  }
-
-}
 
 
 //Slider Configuração swiper.js
@@ -182,8 +188,8 @@ fetch("http://localhost:5000/produtos",{
             ${produto.desconto > 0?'<p class="small text-success m-0">' + produto.desconto +'%OFF</p>': '<p class="small text-success m-0">&nbsp</p>'}
         </span>
         <span id="box-comprar">
-          <button class="btn btn-success" onclick=" clickComprar(${produto.id})">Comprar</button>
-          <button class="btn btn-primary" onclick="addCart(${produto.id})">
+          <button class="btn btn-success" onclick=" addCart(${produto.id}, event)">Comprar</button>
+          <button class="btn btn-primary" onclick="addCart(${produto.id}, event)">
               <i class="fa-solid fa-cart-shopping"></i>
           </button>
         </span>
@@ -224,7 +230,7 @@ if (login){
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Perfil</a></li>
                 <li><a class="dropdown-item" href="#">Configurações</a></li>
-                <li><a class="dropdown-item" href="#" onclick="logOut()">Sair</a></li>
+                <li><a class="dropdown-item" href="#" onclick="logOut(event)">Sair</a></li>
               </ul>
               `
     loginBox.appendChild(btnLogado)

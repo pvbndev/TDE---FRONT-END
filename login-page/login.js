@@ -1,6 +1,16 @@
 var criar_Login = document.querySelector("#box-cad-log")
 var formLogin = document.querySelector("#form-login")
 
+function alerta(msg){
+    var alert = document.querySelector("#alerta")
+    alert.style.display = "block"
+    alert.innerHTML = msg
+  
+    setTimeout(function(){
+      alert.style.display = "none"
+    }, 3000)
+  }
+
 
 function redirect(link){
     window.location.href = link

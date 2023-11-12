@@ -1,5 +1,15 @@
 var formCC = document.querySelector("#form-cc")
 
+function alerta(msg){
+    var alert = document.querySelector("#alerta")
+    alert.style.display = "block"
+    alert.innerHTML = msg
+  
+    setTimeout(function(){
+      alert.style.display = "none"
+    }, 3000)
+  }
+
 function criar(){
     var cc_user = document.querySelector("#cc_user").value
     var cc_email = document.querySelector("#cc_email").value
