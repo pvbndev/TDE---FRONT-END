@@ -17,9 +17,6 @@ myHeaders.append("Content-Type", "application/json");
 
 var boxCarrinho = document.querySelector("#box-carrinho")
 
-teste = sessionStorage.getItem("login")
-console.log(teste);
-
 if (sessionStorage.getItem("login") === null){
   boxCarrinho.setAttribute("href", "./login-page/index.html")
 }
@@ -70,8 +67,7 @@ categorias.addEventListener("mouseleave", function(){
     categorias.style.display = "none"
 })
 
-function addCart(id, event){
-  event.preventDefault()
+function addCart(id, comprar){
   if (sessionStorage.getItem("login")){
     userId = Number(sessionStorage.getItem("id"))
 
@@ -114,14 +110,20 @@ function addCart(id, event){
           ))
           .then(result => console.log(result))
       }
+      if (comprar) {
+        redirect("/carrinho/index.html")
+      }
     })
+    
   }else{
     redirect("/login-page/index.html")
   }
 
 }
 
-
+function comprarProd(id) {
+  addCart(id, true)
+}
 
 //Slider Configuração swiper.js
 setTimeout(function () {
@@ -188,8 +190,8 @@ fetch("http://localhost:5000/produtos",{
             ${produto.desconto > 0?'<p class="small text-success m-0">' + produto.desconto +'%OFF</p>': '<p class="small text-success m-0">&nbsp</p>'}
         </span>
         <span id="box-comprar">
-          <button class="btn btn-success" onclick=" addCart(${produto.id}, event)">Comprar</button>
-          <button class="btn btn-primary" onclick="addCart(${produto.id}, event)">
+          <button class="btn btn-success" onclick=" comprarProd(${produto.id})">Comprar</button>
+          <button class="btn btn-primary" onclick="addCart(${produto.id})">
               <i class="fa-solid fa-cart-shopping"></i>
           </button>
         </span>

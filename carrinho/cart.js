@@ -94,9 +94,9 @@ fetch('http://localhost:5000/carrinho')
             <p class="m-2 fw-medium">R$ ${total}</p>
         </div>
 
-        <div class="d-flex justify-content-around" id="add-Cupom">
+        <div class="d-flex justify-content-between" id="add-Cupom">
             <input type="text" class="form-control my-0" placeholder="Cupom de desconto" required autofocus id="input_User">
-            <button class="btn btn-success">Validar Cupom</button>
+            <button class="btn btn-success">Validar</button>
         </div>
         <button class="btn btn-primary p-3">Finalizar Compra</button>
       `;
@@ -104,7 +104,7 @@ fetch('http://localhost:5000/carrinho')
     });
   });
 
-  function modQte(id, pm, event) {
+  function modQte(id, pm, event){
     
     fetch('http://localhost:5000/carrinho')
   .then(response => response.json())

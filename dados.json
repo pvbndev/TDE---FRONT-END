@@ -29,6 +29,12 @@
       "email": "akise@email.email",
       "password": "akisamuel",
       "id": 5
+    },
+    {
+      "user": "testetde",
+      "email": "teste@gmail.com",
+      "password": "12345",
+      "id": 6
     }
   ],
   "produtos": [
@@ -105,5 +111,12 @@
       "id": 8
     }
   ],
-  "carrinho": []
+  "carrinho": [
+    {
+      "produtoId": 1,
+      "userId": 6,
+      "qteProd": 5,
+      "id": 1
+    }
+  ]
 }
