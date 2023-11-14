@@ -1,3 +1,15 @@
+const firebaseConfig = {
+  apiKey: "AIzaSyA7U7Y0xgfvvPQzaoqoUb11FNuGaTL0h70",
+  authDomain: "toystore-839ce.firebaseapp.com",
+  projectId: "toystore-839ce",
+  storageBucket: "toystore-839ce.appspot.com",
+  messagingSenderId: "522623887772",
+  appId: "1:522623887772:web:1a4babe5c47f7948bf0059"
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore()
+
 var radio = document.querySelector('.manual-btn')
 var cont = 1 
 const swiper = document.querySelector('.swiper').swiper;
@@ -69,7 +81,7 @@ categorias.addEventListener("mouseleave", function(){
 
 function addCart(id, comprar){
   if (sessionStorage.getItem("login")){
-    userId = Number(sessionStorage.getItem("id"))
+    userId = sessionStorage.getItem("id")
 
     fetch('http://localhost:5000/carrinho')
     .then(response => response.json())
@@ -213,32 +225,25 @@ if (login){
 
   var btnLogado = document.createElement('div')
   btnLogado.className = "dropdown"
+
   var userLogado = sessionStorage.getItem("id")
 
-  fetch(`http://localhost:5000/users/${userLogado}`,{
-  method:"GET",
-  headers:{
-      'Content-type': 'application/json',
-  },
-  })
-  .then((resp) => resp.json())
-  .then((data) =>{
-    loginBox.className = "d-flex"
-    btnLogado.innerHTML = `
-    <button class="btn btn-outline-primary dropdown-toggle text-capitalize" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ${data.user}&nbsp
-                <i class="fa-solid fa-user"></i>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configurações</a></li>
-                <li><a class="dropdown-item" href="#" onclick="logOut(event)">Sair</a></li>
-              </ul>
-              `
-    loginBox.appendChild(btnLogado)
-
-  })
-
+    db.collection("Users").doc(userLogado).get().then((doc) => {
+      var userData = doc.data();
+      loginBox.className = "d-flex"
+      btnLogado.innerHTML = `
+      <button class="btn btn-outline-primary dropdown-toggle text-capitalize" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  ${userData.user}&nbsp
+                  <i class="fa-solid fa-user"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Perfil</a></li>
+                  <li><a class="dropdown-item" href="#">Configurações</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="logOut(event)">Sair</a></li>
+                </ul>
+                `
+      loginBox.appendChild(btnLogado)
+    })
 }else{
   var btnLogCreat = document.createElement('a')
   loginBox.className = "d-flex"

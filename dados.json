@@ -1,42 +1,4 @@
 {
-  "users": [
-    {
-      "user": "samuel",
-      "email": "samuel@gmail.com",
-      "password": "12345",
-      "id": 1
-    },
-    {
-      "user": "celio",
-      "email": "celio@gay.semen",
-      "password": "12345",
-      "id": 2
-    },
-    {
-      "user": "calebe",
-      "email": "calebe@gay.semen",
-      "password": "12345",
-      "id": 3
-    },
-    {
-      "user": "samuelteste",
-      "email": "samuel@gmail.com",
-      "password": "12345",
-      "id": 4
-    },
-    {
-      "user": "akise",
-      "email": "akise@email.email",
-      "password": "akisamuel",
-      "id": 5
-    },
-    {
-      "user": "testetde",
-      "email": "teste@gmail.com",
-      "password": "12345",
-      "id": 6
-    }
-  ],
   "produtos": [
     {
       "nome": "Tabuleiro halloween Scoob Doo",
@@ -117,6 +79,12 @@
       "userId": 6,
       "qteProd": 5,
       "id": 1
+    },
+    {
+      "produtoId": 3,
+      "userId": "wFtsOWAXyL2YDJaDvNvl",
+      "qteProd": 5,
+      "id": 2
     }
   ]
 }
