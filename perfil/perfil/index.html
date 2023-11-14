@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +14,55 @@
     <link rel="stylesheet" href="style/style.css">
     <style>
         .container-fluid{
-            background-color: darkgray;
             width: 1200px;
             height: 70vh;
             border-radius: 10px;
         }
+        .navbar{
+            width: 100%;
+            height: 120px;
+        }
+        img{
+            width: 180px;
+        }
+        .box-info{
+            height: calc(100% - 120px);
+            width: 100%;
+        }
+        .container-fluid{
+            padding: 0;
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        #infocard{
+            background-color: aqua;
+            width: 85%;
+            height: 85%;
+            border-radius: 10px;
+        }
     </style>
 </head>
-<body class="d-flex align-items-center flex-column">
-    <h1 class="my-5">Perfil da Conta</h1>
+<body>
+    
     <div class="container-fluid">
-        <h5>Usuário: </h5>
-        <h5>Email: </h5>
+        <nav class="navbar px-5 bg-dark-subtle">
+            <div class="nav-item">
+                <img src="/style/img/logoTOYSTORE.svg" alt="Logo escrito ToyStore com toy na cor rosa, e store na cor azul">
+            </div>
+    
+            <div class="nav-item">
+                <h2>Perfil do Usuário</h2>
+            </div>
+        </nav>
+    
+        <div class="box-info d-flex justify-content-center align-items-center">
+            <div class="bg-dark-subtle" id="infocard">
+
+            </div>
+        </div>
     </div>
+
 </body>
+
 </html>
