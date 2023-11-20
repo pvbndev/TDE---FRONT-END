@@ -18,7 +18,7 @@ myHeaders.append("Content-Type", "application/json");
 var boxCarrinho = document.querySelector("#box-carrinho")
 
 if (sessionStorage.getItem("login") === null){
-  boxCarrinho.setAttribute("href", "./login-page/index.html")
+  boxCarrinho.setAttribute("href", "../login-page/index.html")
 }
 
 function redirect(link){
