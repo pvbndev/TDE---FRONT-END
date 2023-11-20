@@ -111,12 +111,12 @@ function addCart(id, comprar){
           .then(result => console.log(result))
       }
       if (comprar) {
-        redirect("/carrinho/index.html")
+        redirect("../carrinho/index.html")
       }
     })
     
   }else{
-    redirect("/login-page/index.html")
+    redirect("../login-page/index.html")
   }
 
 }
@@ -242,7 +242,7 @@ if (login){
 }else{
   var btnLogCreat = document.createElement('a')
   loginBox.className = "d-flex"
-  btnLogCreat.href = "login-page/index.html"
+  btnLogCreat.href = "../login-page/index.html"
   btnLogCreat.className = "nav-link nav-item"
   btnLogCreat.id = "box-cad-log"
 
