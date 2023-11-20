@@ -158,6 +158,7 @@ li:hover{
 /*Formatação*/
 .swiper-slide img{
     width: 100%;
+    border-radius: 10px;
 }
 div.swiper-button-prev, div.swiper-button-next{
     height: 25px;
@@ -169,7 +170,7 @@ div.swiper-button-prev, div.swiper-button-next{
 
 /*Formatação*/
 #categorias{
-    width: 100vw;
+    width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
     display: none; /*O display vem none por padrão, ai quando a pessoa passar o dedo encima do "todas as categorias", vai ser chamada uma função no js, na qual vai mudar o display pra "flex". */
@@ -194,11 +195,20 @@ div.swiper-button-prev, div.swiper-button-next{
 /*Formatação*/
 #categorias ul{
     display: inline;
+    padding: 10px;
+}
+
+#categorias li {
+    margin: 15px;
 }
 
 .img-thumbnail p{
     text-align: justify;
 
+}
+
+.img-fluid {
+    border-radius: 10px;
 }
 
 .mp-item{
