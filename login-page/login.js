@@ -57,6 +57,7 @@ function validacao(event){
             sessionStorage.setItem("login", true)
             sessionStorage.setItem("id", atualUser.id)
             console.log("Login Concluido com sucesso")
+            redirect("../index.html")
             redirect("../html/index.html")
         }else{
             document.querySelector("#erroLogin").style.display = "flex"
