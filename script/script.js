@@ -27,7 +27,7 @@ function redirect(link){
 
 
 async function atualizarJson(taskId, Task){
-  const url = `http://localhost:5000/carrinho/${taskId}`
+  const url = `https://toy-store-json.vercel.app/carrinho/${taskId}`
   const options = {
       method: 'PUT',
       headers:{
@@ -71,7 +71,7 @@ function addCart(id, comprar){
   if (sessionStorage.getItem("login")){
     userId = Number(sessionStorage.getItem("id"))
 
-    fetch('http://localhost:5000/carrinho')
+    fetch('https://toy-store-json.vercel.app/carrinho')
     .then(response => response.json())
     .then(data => {
       
@@ -104,7 +104,7 @@ function addCart(id, comprar){
           redirect: 'follow'
         };
         
-        fetch("http://localhost:5000/carrinho", requestOptions)
+        fetch("https://toy-store-json.vercel.app/carrinho", requestOptions)
           .then(response => response.text(
             alerta("Adicionado com sucesso ao carrinho")
           ))
@@ -156,7 +156,7 @@ setTimeout(function () {
 
 
 //pegando as ofertas do "banco"
-fetch("http://localhost:5000/produtos",{
+fetch("https://toy-store-json.vercel.app/produtos",{
   method:"GET",
   headers:{
       'Content-type': 'application/json',
@@ -215,7 +215,7 @@ if (login){
   btnLogado.className = "dropdown"
   var userLogado = sessionStorage.getItem("id")
 
-  fetch(`http://localhost:5000/users/${userLogado}`,{
+  fetch(`https://toy-store-json.vercel.app/users/${userLogado}`,{
   method:"GET",
   headers:{
       'Content-type': 'application/json',

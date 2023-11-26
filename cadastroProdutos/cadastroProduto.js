@@ -32,7 +32,7 @@ function newProd(event) {
             "imagem": reader.result
         };
 
-        fetch("http://localhost:5000/produtos", {
+        fetch("https://toy-store-json.vercel.app/produtos", {
             method: 'post',
             body: JSON.stringify(newProduto),
             headers: {

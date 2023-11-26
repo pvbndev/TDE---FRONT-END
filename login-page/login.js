@@ -16,7 +16,7 @@ function redirect(link){
     window.location.href = link
 }
 async function atualizarJson(taskId, Task){
-    const url = `http://localhost:5000/users/${taskId}`
+    const url = `https://toy-store-json.vercel.app/users/${taskId}`
     const options = {
         method: 'PUT',
         headers:{
@@ -43,7 +43,7 @@ function validacao(event){
     user = user.toLowerCase()
     senha = senha.toLowerCase()
 
-    fetch("http://localhost:5000/users",{
+    fetch("https://toy-store-json.vercel.app/users",{
         method:"GET",
         headers:{
             'Content-type': 'application/json',

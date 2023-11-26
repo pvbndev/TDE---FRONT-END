@@ -121,11 +121,5 @@
     }
   ],
   "carrinho": [
-    {
-      "produtoId": 1,
-      "userId": 6,
-      "qteProd": 5,
-      "id": 1
-    }
   ]
 }

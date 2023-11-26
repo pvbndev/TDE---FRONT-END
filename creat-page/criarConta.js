@@ -30,7 +30,7 @@ function criar(){
             "password": cc_senha
         };
         
-        fetch("http://localhost:5000/users", {
+        fetch("https://toy-store-json.vercel.app/users", {
             method: 'post',
             body: JSON.stringify(newUser),
             headers:{
