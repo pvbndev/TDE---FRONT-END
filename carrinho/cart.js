@@ -78,7 +78,7 @@ fetch('http://localhost:5000/carrinho')
     Promise.all(promises).then(() => {
       var boxCart = document.querySelector("#box-cart");
       var div = document.createElement("div");
-      div.className = "bg-dark-subtle d-flex flex-column p-4 justify-content-around";
+      div.className = "bg-secondary-subtle d-flex flex-column p-5 justify-content-around";
       div.id = "resume-buy";
 
       div.innerHTML = `

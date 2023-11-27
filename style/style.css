@@ -162,7 +162,6 @@ li:hover{
 /*Formatação*/
 .swiper-slide img{
     width: 100%;
-    border-radius: 10px;
 }
 div.swiper-button-prev, div.swiper-button-next{
     height: 25px;
@@ -209,10 +208,6 @@ div.swiper-button-prev, div.swiper-button-next{
 .img-thumbnail p{
     text-align: justify;
 
-}
-
-.img-fluid {
-    border-radius: 10px;
 }
 
 .mp-item{

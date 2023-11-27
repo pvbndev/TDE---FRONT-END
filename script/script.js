@@ -230,8 +230,7 @@ if (login){
                 <i class="fa-solid fa-user"></i>
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                <li><a class="dropdown-item" href="#">Configurações</a></li>
+                <li><a class="dropdown-item" href="../perfil/perfil/index.html">Perfil</a></li>
                 <li><a class="dropdown-item" href="#" onclick="logOut(event)">Sair</a></li>
               </ul>
               `
